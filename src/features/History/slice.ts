@@ -9,7 +9,7 @@ export interface HistoryItem {
     path: GameState["path"]
 }
 
-interface HistoryState {
+export interface HistoryState {
     solved: HistoryItem[];
 }
 
