@@ -1,0 +1,39 @@
+.main {
+    padding: 2rem 0;
+
+    .failure {
+        color: red;
+    }
+    .success {
+        color: green;
+    }
+
+    .arrayInput {
+        margin: 5px auto;
+        input {
+            text-align: center;
+            color: black;
+            font-size: 1rem;
+            padding: 0.5rem;
+            font-family: inherit;
+            border: 0px;
+            border-bottom: 1px solid black;
+            margin: 0 15px;
+            display: inline-block;
+            width: 300px;
+        }
+    }
+
+    button {
+        background-color: #2a8bca;
+        color: #fff;
+        border: none;
+        outline: none;
+        padding: 1rem 2rem;
+        border-radius: 3px;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        margin: 1rem;
+    }
+}
