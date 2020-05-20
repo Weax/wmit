@@ -21,13 +21,13 @@ describe('Game slice', () => {
         it('should set array to winnable when we set some path', () => {
             const nextState = reducer(initialState, setPath(winnable1.path));
             const rootState = { game: nextState, history: initialHistoryState };
-            expect(selectWinnable(rootState)).toEqual(true);
+            expect(selectWinnable(rootState)).toBe(true);
         });
 
         it('should set array to NOT winnable when path is empty', () => {
             const nextState = reducer(initialState, setPath([]));
             const rootState = { game: nextState, history: initialHistoryState };
-            expect(selectWinnable(rootState)).toEqual(false);
+            expect(selectWinnable(rootState)).toBe(false);
         });
 
         it('should reset on newGame', () => {
@@ -39,7 +39,7 @@ describe('Game slice', () => {
             }, newGame());
             const rootState = { game: nextState, history: initialHistoryState };
             expect(selectInputValue(rootState)).toEqual("");
-            expect(selectProcessed(rootState)).toEqual(false);
+            expect(selectProcessed(rootState)).toBe(false);
         });
 
         //thunk:

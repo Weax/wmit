@@ -7,6 +7,14 @@ Game rules:
 Game is done using React and Redux with Typescript.<br />
 Project was bootstrapped with Create React App. I used [Redux Toolkit](https://redux-toolkit.js.org/) for organising actions, reducers and selectors. I like it's approach to have everything in one "slice" file and write much less code.
 
+## App key features
+
+* User can enter or modify the array
+* Receive feedback if the goal is reachable
+* Find most efficient path to reach last step
+* History is saved to LocalStorage
+* Already calculated arrays are not processed
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -16,7 +24,7 @@ In the project directory, you can run:
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Array is analised and saved to history using LocalStorage by pressing "Check" button.
+Array is analyzed and saved to history by pressing "Check" button.
 
 Try some examples:<br />
 Winnable array: 1, 2, 0, 3, 0, 2, 0<br />
