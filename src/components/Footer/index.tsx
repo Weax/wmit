@@ -10,14 +10,14 @@ const Footer: React.FC = () => {
   return (
     <>
       {history.length > 0 &&
-        <>
+        <div className="history">
           <h3>History:</h3>
           <p>Path in winnable arrays is marked as bold</p>
           {history.map((item, i) => (
             <div style={{ color: item.path.length > 0 ? 'green' : 'red' }} key={i} dangerouslySetInnerHTML={{ __html: highlightPath(item) }}></div>
           ))}
-        </>
-    }
+        </div>
+      }
     </>
   );
 };

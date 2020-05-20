@@ -1,16 +1,15 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
+import { newGame } from "../../features/Game/slice";
 import './styles.scss';
 
-interface HeaderProps {
-    buttonAction: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-}
-
-const Header: React.FC<HeaderProps> = ({ buttonAction }) => {
-
+const Header: React.FC = () => {
+    const dispatch = useDispatch();
+    
     return (
         <div className="header">
             <h1>Is winnable?</h1>
-            <button onClick={buttonAction}>New</button>
+            <button onClick={() => dispatch(newGame())}>New</button>
         </div>
     );
 };

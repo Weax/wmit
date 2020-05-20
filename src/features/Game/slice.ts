@@ -46,19 +46,25 @@ export const checkIsWinnable = (string: string) => (dispatch: StoreDispatch, get
     dispatch(setArray(array));
     dispatch(setInputValue(array.join(", ")));
 
-    //look for array in history
-    const solved = getState().history.solved;
-    const arrayInSolved = solved.filter(e => arrayCompare(e.array, array));
+    if (array.length > 0) {
 
-    if (arrayInSolved.length > 0) { //we already solved this array        
-        const [historyItem] = arrayInSolved;
-        dispatch(setPath(historyItem.path)); //display result
+        //look for array in history
+        const solved = getState().history.solved;
+        const arrayInSolved = solved.filter(e => arrayCompare(e.array, array));
+
+        if (arrayInSolved.length > 0) { //we already solved this array        
+            const [historyItem] = arrayInSolved;
+            dispatch(setPath(historyItem.path)); //display result
+        } else {
+            const path = findPath(array);
+            dispatch(setPath(path));
+            //save history
+            const historyItem: HistoryItem = { array, path };
+            dispatch(add(historyItem));
+        }
+
     } else {
-        const path = findPath(array);
-        dispatch(setPath(path));
-        //save history
-        const historyItem: HistoryItem = { array, path };
-        dispatch(add(historyItem));
+        dispatch(setPath([]));
     }
 
 };

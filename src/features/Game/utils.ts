@@ -16,36 +16,29 @@ const arrayCompare = (arr1: any[], arr2: any[]) => {
     return true;
 }
 
+const calculateMinPath = (arr: number[], indexWhereToGo: number):number[] | null => {
+    if (indexWhereToGo === 0) return [];
+
+    for (let i = 0; i < indexWhereToGo; i++) { //i -> index of element we try to jump from
+        if (i + arr[i] >= indexWhereToGo) { //arr[i] -> how far we can jump
+            let pathToThatElement = calculateMinPath(arr, i);            
+            return pathToThatElement ? [...pathToThatElement, i] : null;
+        }
+    }
+
+    return null;
+}
+
 const findPath = (arr: GameState["array"]): number[] => {
     const n = arr.length;
     if (n === 0 || arr[0] === 0) return [];
 
-    let jumps = new Array(n);
-    jumps[0] = 0;
+    //let's start from the end and see if we can reach this element from element 0, element 1 and etc.
+    //if we can, save this index in path and try to reach our new index from el 0, el 1 and etc.
+    //result is path of array indexes
+    let result = calculateMinPath(arr, n - 1);
 
-    let jumpFrom = new Array(n);
-
-    for (let i = 1; i < n; i++) {
-        jumps[i] = Infinity;
-        for (let j = 0; j < i; j++) {
-            if (i <= j + arr[j] && jumps[j] !== Infinity) {
-
-                if (jumps[j] + 1 < jumps[i]) {
-                    jumps[i] = jumps[j] + 1;
-                    jumpFrom[i] = j;
-                }
-                break;
-            }
-        }
-    }
-
-    let path = [];
-    let i = jumpFrom[n - 1];
-    while (i > 0) {
-        path.push(i);
-        i = jumpFrom[i];
-    }
-    return path.reverse();
+    return result || [];
 };
 
 export {
