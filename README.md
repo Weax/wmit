@@ -33,10 +33,4 @@ Non-winnable: 1, 2, 0, -1, 0, 2, 0<br />
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
-The test suite implemented using Jest.<br />
-
-Test source location:<br />
-src/features/Game/slice.test.ts<br />
-src/features/Game/utils.test.ts<br />
-src/features/History/slice.test.ts<br />
-src/features/History/utils.test.ts<br />
+The test suite implemented using Jest.
